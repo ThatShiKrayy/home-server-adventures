@@ -1,7 +1,7 @@
 # 🧠 Scott Worley's Homelab Stack
 ![Docker Compose](https://img.shields.io/badge/docker--compose-modular-blue?logo=docker)
-![License](https://img.shields.io/github/license/YOUR_USERNAME/homelab-compose)
-![Last Commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/homelab-compose)
+![License](https://img.shields.io/github/license/ThatShiKrayy/homelab-compose)
+![Last Commit](https://img.shields.io/github/last-commit/ThatShiKrayy/homelab-compose)
 ![Status](https://img.shields.io/badge/status-in_progress-yellow)
 ![Built With](https://img.shields.io/badge/built%20with-Ansible%20%7C%20Docker%20%7C%20CrowdSec-0e7a0d)
 
