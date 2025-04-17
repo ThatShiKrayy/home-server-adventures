@@ -1,12 +1,11 @@
 # 🧠 Scott Worley's Homelab Stack
-<<<<<<< HEAD
-=======
+
 ![Docker Compose](https://img.shields.io/badge/docker--compose-modular-blue?logo=docker)
 ![License](https://img.shields.io/github/license/ThatShiKrayy/home-server-adventures)
 ![Last Commit](https://img.shields.io/github/last-commit/ThatShiKrayy/home-server-adventures)
 ![Status](https://img.shields.io/badge/status-in_progress-yellow)
 ![Built With](https://img.shields.io/badge/built%20with-Ansible%20%7C%20Docker%20%7C%20CrowdSec-0e7a0d)
->>>>>>> 0b85a5632aa2cba10a3526dec3550b0c95c794d9
+>>>>>>
 
 > A modular, secure, and obsessively documented Docker Compose-based homelab.  
 > Built to run 24/7, survive the apocalypse, and make Plex purr.
