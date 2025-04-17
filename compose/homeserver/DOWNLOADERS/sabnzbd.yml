@@ -1,0 +1,25 @@
+services:
+  sabnzbd:
+    container_name: sabnzbd
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+      UMASK_SET: 2
+    image: lscr.io/linuxserver/sabnzbd:latest
+    networks:
+    - default
+    - socket_proxy
+    ports:
+    - "8084:8080"
+    restart: unless-stopped
+    read_only: false
+    tmpfs:
+    - /run:exec
+    user: $PUID:$PGID
+    volumes:
+    - $DOCKERDIR/appdata/sabnzbd:/config
+    - $DOWNDIR:/data/downloads
+    - $LOGDIR/sabnzbd:/var/log
+    - $DATADIR/TV/MasterClass:/masterclass
+    - $DATADIR/private:/data/private

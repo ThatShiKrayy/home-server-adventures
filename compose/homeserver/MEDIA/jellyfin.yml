@@ -1,0 +1,22 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    networks:
+    - default
+    security_opt:
+    - no-new-privileges:true
+    restart: "no"
+    user: $PUID:$PGID
+    devices:
+    - /dev/dri:/dev/dri
+    ports:
+    - "8096:8096"
+    environment:
+      UMASK_SET: 22
+      TZ: $TZ
+    volumes:
+    - $DOCKERDIR/appdata/jellyfin:/config
+    - $DATADIR/private:/data/downloads
+    - $DATADIR/Personal:/data/personal
+    - /dev/shm:/data/transcode

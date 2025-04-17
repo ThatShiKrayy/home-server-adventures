@@ -1,0 +1,17 @@
+services:
+  whisparr:
+    container_name: whisparr
+    environment:
+    - TZ=$TZ
+    - PUID=$PUID
+    - PGID=$PGID
+    image: ghcr.io/thespad/whisparr:latest
+    networks:
+    - socket_proxy
+    ports:
+    - 6969:6969
+    restart: unless-stopped
+    volumes:
+    - $APPDIR/whisparr:/config
+    - $DOWNDIR:/data/downloads
+    - $DATADIR/private:/data/private

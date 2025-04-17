@@ -1,0 +1,30 @@
+services:
+  # Radarr - Movie management
+  radarr:
+    image: ghcr.io/home-operations/radarr:5.21.0.9792
+    container_name: radarr
+    security_opt:
+    - no-new-privileges:true
+    restart: "unless-stopped"
+    healthcheck:
+      test: curl -f http://localhost:7878/ping || exit 1
+      interval: 5m00s
+      timeout: 10s
+      retries: 2
+      start_period: 30s
+    networks:
+    - socket_proxy
+    - default
+    ports:
+    - "7878:7878"
+    user: $PUID:$PGID
+    volumes:
+    - $DOCKERDIR/appdata/radarr:/config
+    - $DATADIR/Movies:/data/movies
+    - $DOWNDIR:/data/downloads
+    - "/etc/localtime:/etc/localtime:ro"
+    - $LOGDIR/radarr:/var/log
+    environment:
+      TZ: $TZ
+      PUID: $PUID
+      PGID: $PGID

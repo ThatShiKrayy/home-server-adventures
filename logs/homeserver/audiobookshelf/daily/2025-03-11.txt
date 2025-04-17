@@ -1,0 +1,21 @@
+{"timestamp":"2025-03-11 15:36:22.026","source":"Server.js:225","message":"=== Starting Server ===","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.026","source":"Server.js:145","message":"[Server] Init v2.19.5","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.026","source":"Server.js:146","message":"[Server] Node.js Version: v20.18.3","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.026","source":"Server.js:147","message":"[Server] Platform: linux","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.026","source":"Server.js:148","message":"[Server] Arch: arm64","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.346","source":"Database.js:207","message":"[Database] Initializing db at \"/config/absdatabase.sqlite\"","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.368","source":"Database.js:282","message":"[Database] Loading extension /usr/local/lib/nusqlite3/libnusqlite3.so","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.369","source":"Database.js:290","message":"[Database] Successfully loaded extension /usr/local/lib/nusqlite3/libnusqlite3.so","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.369","source":"Database.js:259","message":"[Database] Db supports unaccent and unicode foldings","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.370","source":"Database.js:263","message":"[Database] Db connection was successful","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.376","source":"MigrationManager.js:77","message":"[MigrationManager] Database is already up to date.","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.470","source":"Database.js:191","message":"[Database] Db initialized with models: user, library, libraryFolder, book, podcast, podcastEpisode, libraryItem, mediaProgress, series, bookSeries, author, bookAuthor, collection, collectionBook, playlist, playlistMediaItem, device, playbackSession, feed, feedEpisode, setting, customMetadataProvider, mediaItemShare","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.490","source":"Database.js:197","message":"[Database] running ANALYZE","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.492","source":"Database.js:199","message":"[Database] ANALYZE completed","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.493","source":"LogManager.js:117","message":"[LogManager] Removed daily log: 2025-03-01.txt","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.493","source":"LogManager.js:66","message":"[LogManager] Init current daily log filename: 2025-03-11.txt","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.518","source":"BackupManager.js:285","message":"[BackupManager] 0 Backups Found","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.518","source":"BackupManager.js:72","message":"[BackupManager] Auto Backups are disabled","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.530","source":"Watcher.js:58","message":"[Watcher] Initializing watcher for \"Library\".","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.534","source":"Server.js:400","message":"Listening on port :80","levelName":"INFO","level":2}
+{"timestamp":"2025-03-11 15:36:22.547","source":"Watcher.js:89","message":"[Watcher] \"Library\" Ready","levelName":"INFO","level":2}

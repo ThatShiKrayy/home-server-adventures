@@ -1,0 +1,27 @@
+---
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    environment:
+    - PUID=$PUID
+    - PGID=$PGID
+    - TZ=$TZ
+    volumes:
+    - $APPDIR/grocy:/config
+    networks:
+    - socket_proxy
+    - t3_proxy
+    ports:
+    - 9283:80
+    restart: unless-stopped
+    labels:
+    - "traefik.enable=true"
+    # HTTP Routers
+    - "traefik.http.routers.grocy-rtr.entrypoints=websecure"
+    - "traefik.http.routers.grocy-rtr.rule=Host(`grocy.$DOMAINNAME_1`)"
+    # Middlewares
+    - "traefik.http.routers.grocy-rtr.middlewares=chain-no-auth@file"
+    # HTTP Services
+    - "traefik.http.routers.grocy-rtr.service=grocy-svc"
+    - "traefik.http.services.grocy-svc.loadbalancer.server.port=80"

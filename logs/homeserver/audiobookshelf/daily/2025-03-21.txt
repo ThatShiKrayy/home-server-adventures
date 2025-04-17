@@ -1,0 +1,6 @@
+{"timestamp":"2025-03-21 00:13:12.371","source":"SocketAuthority.js:139","message":"[SocketAuthority] Socket Connected to /audiobookshelf/socket.io znF12olSe6UHYKv6AAAT","levelName":"INFO","level":2}
+{"timestamp":"2025-03-21 00:13:31.023","source":"SocketAuthority.js:166","message":"[SocketAuthority] Socket znF12olSe6UHYKv6AAAT disconnected from client \"root\" after 18652ms (Reason: transport close)","levelName":"INFO","level":2}
+{"timestamp":"2025-03-21 00:18:46.379","source":"SocketAuthority.js:139","message":"[SocketAuthority] Socket Connected to /audiobookshelf/socket.io tB8Yuf6nfyVeMpTVAAAV","levelName":"INFO","level":2}
+{"timestamp":"2025-03-21 00:19:46.616","source":"SocketAuthority.js:166","message":"[SocketAuthority] Socket tB8Yuf6nfyVeMpTVAAAV disconnected from client \"root\" after 60236ms (Reason: transport close)","levelName":"INFO","level":2}
+{"timestamp":"2025-03-21 00:19:55.337","source":"SocketAuthority.js:139","message":"[SocketAuthority] Socket Connected to /audiobookshelf/socket.io Q1JX5-xDV6Eaa0JyAAAX","levelName":"INFO","level":2}
+{"timestamp":"2025-03-21 00:20:29.592","source":"SocketAuthority.js:166","message":"[SocketAuthority] Socket Q1JX5-xDV6Eaa0JyAAAX disconnected from client \"root\" after 34255ms (Reason: transport close)","levelName":"INFO","level":2}

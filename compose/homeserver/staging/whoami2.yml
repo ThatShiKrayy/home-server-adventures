@@ -1,0 +1,27 @@
+services:
+  whoami2:
+    image: traefik/whoami
+    container_name: "simple-service-bar"
+    restart: unless-stopped
+    networks:
+    - socket_proxy
+    - crowdsec
+    - t3_proxy
+    secrets: 
+    - crowdsec_lapi_key
+    labels:
+    - "traefik.enable=true"
+    # Definition of the router
+    - "traefik.http.routers.router-bar.rule=Path(`/bar`)"
+    - "traefik.http.routers.router-bar.entrypoints=web"
+    - "traefik.http.routers.router-bar.middlewares=crowdsec@docker"
+    # Definition of the service
+    - "traefik.http.services.service-bar.loadbalancer.server.port=80"
+    # Definitin of the middleware
+    - "traefik.http.middlewares.crowdsec.plugin.bouncer.enabled=true"
+    # crowdseclapikey is the key to authenticate to crowdsec
+    - "traefik.http.middlewares.crowdsec.plugin.bouncer.crowdseclapikey=${CROWDSEC_LAPI_KEY}="
+    # enable AppSec real time check
+    #- "traefik.http.middlewares.crowdsec.plugin.bouncer.crowdsecappsecenabled=true"
+    # forwardedheaderstrustedips should be the IP of the proxy that is in front of traefik (if any)
+    - "traefik.http.middlewares.crowdsec.plugin.bouncer.forwardedheaderstrustedips=172.21.0.5"

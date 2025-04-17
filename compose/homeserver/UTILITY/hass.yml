@@ -1,0 +1,30 @@
+---
+services:
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+    network_mode: host
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    environment:
+    - PUID=$PUID
+    - PGID=$PGID
+    - TZ=$TZ
+    volumes:
+    - $APPDIR/hass:/config
+    - /var/run/dbus:/var/run/dbus:ro
+    ports:
+    - target: 8123
+      published: 8123
+      protocol: udp
+      mode: host
+    #devices:
+    #- /path/to/device:/path/to/device #optional
+    restart: unless-stopped
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.ha-rtr.entrypoints=websecure"
+    #   - "traefik.http.routers.ha-rtr.rule=Host(`ha.$DOMAINNAME_1`)"
+    #   - "traefik.http.routers.ha-rtr.service=ha-svc"
+    #   - "traefik.http.services.ha-svc.loadbalancer.server.port=8123"

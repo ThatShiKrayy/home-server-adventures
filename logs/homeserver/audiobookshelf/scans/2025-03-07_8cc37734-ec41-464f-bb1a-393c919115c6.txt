@@ -1,0 +1,74 @@
+{"id":"8cc37734-ec41-464f-bb1a-393c919115c6","type":"scan","library":{"id":"fdd2daf7-b2f0-4985-a741-a4c22507171a","name":"Library","displayOrder":1,"icon":"database","mediaType":"book","provider":"google","lastScan":"2025-03-07T23:16:41.628Z","lastScanVersion":"2.19.5","settings":{"coverAspectRatio":1,"disableWatcher":false,"autoScanCronExpression":null,"skipMatchingMediaWithAsin":false,"skipMatchingMediaWithIsbn":false,"audiobooksOnly":false,"epubsAllowScriptedContent":false,"hideSingleBookSeries":false,"onlyShowLaterBooksInContinueSeries":false,"metadataPrecedence":["folderStructure","audioMetatags","nfoFile","txtFiles","opfFile","absMetadata"],"markAsFinishedPercentComplete":null,"markAsFinishedTimeRemaining":10},"extraData":{"lastScanMetadataPrecedence":["folderStructure","audioMetatags","nfoFile","txtFiles","opfFile","absMetadata"]},"createdAt":"2025-03-07T23:11:52.731Z","updatedAt":"2025-03-07T23:16:41.628Z","libraryFolders":[{"id":"37f67e77-03d5-44f5-9ebb-1af0a127a7d0","path":"/audiobooks","createdAt":"2025-03-07T23:11:52.740Z","updatedAt":"2025-03-07T23:11:52.740Z","libraryId":"fdd2daf7-b2f0-4985-a741-a4c22507171a"}]},"startedAt":1741389401562,"finishedAt":1741389401627,"elapsed":65,"resultsAdded":0,"resultsUpdated":0,"resultsMissing":8}
+{"timestamp":"2025-03-07T23:16:41.609Z","message":"63 item data found in folder \"/audiobooks\"","levelName":"INFO","level":2}
+{"timestamp":"2025-03-07T23:16:41.620Z","message":"Library item \"George R.R. Martin/A Feast for Crows\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.620Z","message":"Library Item \"/audiobooks/Genevieve Jack/Tanglewood Magic (The Three Sisters Book 2) (27)\" (inode: 84672989) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.620Z","message":"Library item \"Walter Isaacson/Steve Jobs - A Biography\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Hugh Howey/Molly Fyde and the Parsona Rescue (45)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Timothy Zahn/Greater Good\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"George R.R. Martin/A Dance with Dragons\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Bob Woodward/Peril\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Hugh Howey/I, Zombie (48)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Hugh Howey/Half Way Home (44)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.621Z","message":"Library item \"Timothy Zahn/Chaos Rising\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.622Z","message":"Library Item \"/audiobooks/Genevieve Jack/Queen of The Hill\" (inode: 84672852) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.622Z","message":"Library Item \"/audiobooks/Genevieve Jack/The Dragon of New Orleans (36)\" (inode: 84673018) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.622Z","message":"Library item \"George R.R. Martin/A Clash of Kings\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.622Z","message":"Library item \"Hugh Howey/Beacon 23_ Part Five_ Visitor (52)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.622Z","message":"Library item \"Thomas Paine/The Age of Reason\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"George R.R. Martin/A Game of Thrones\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"Matthew McConaughey/Green Lights\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"Dana Bash/America's Deadliest Election - The Cautionary Tale of the Most Violent Election in American History\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"Matthew McConaughey/Greenlights (3)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"Hugh Howey/Machine Learning (51)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"Bob Woodward/The Price of Politics\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library Item \"/audiobooks/Genevieve Jack/The Dragons of Paragon (22)\" (inode: 84672972) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.623Z","message":"Library item \"George R.R. Martin/A Storm of Swords\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"J.K. Rowling/Harry Potter and the Sorcerer's Stone (5)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"J K Rowling/The Ickabog (12)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"J.K. Rowling/Harry Potter and the Prisoner of Azkaban (9)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Timothy Zahn/Specter of the Past\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Hugh Howey/Beacon 23_ Part Two_ Pet Rocks (59)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Hugh Howey/Company\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Howey, Hugh/First Shift - Legacy (Part 6 of the Silo Series) (Wool) (37)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Jonathan Hernandez - The Truth About Aaron- My Journey to Understand My Brother (retail) (epub)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Timothy Zahn/Lesser Evil\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Hugh Howey/Resist (43)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.624Z","message":"Library item \"Hugh Howey/Glitch_ A Short Story (Kindle Single) (41)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Bob Woodward/The Trump Tapes - Bob Woodward's Twenty Interviews with President Donald Trump\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Bob Woodward/Rage\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Donella H. Meadows/Thinking in Systems\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Bob Woodward/Obama's Wars\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"J.K. Rowling/Harry Potter and the Half-Blood Prince (14)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Bob Woodward/The Last of the President's Men\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Howey, Hugh/The Walk Up Nameless Ridge (Kindle Single) (58)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Thomas Paine/Common Sense - Thomas Paine\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"J.K. Rowling/Harry Potter and the Chamber of Secrets (6)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"Howey, Hugh/The Hurricane (47)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"dokumen.pub_unnecessary-roughness-inside-the-trial-and-final-days-of-aaron-hernandez-9781602866065-9781602866072\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.625Z","message":"Library item \"J. K. Rowling/The Casual Vacancy (11)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Hugh Howey/Molly Fyde and the Blood of Billions (49)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Timothy Zahn/The Last Command\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Matthew Woodring Stover/Star Wars - Shatterpoint\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Hugh Howey/Dust (54)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Howey, Hugh/The Plagiarist (56)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Bob Woodward/Fear - Trump in the White House\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library Item \"/audiobooks/Genevieve Jack/The Dragon of Sedona (20)\" (inode: 84672966) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Hugh Howey/The Silo Saga Omnibus (1)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library Item \"/audiobooks/Genevieve Jack/The Dragon of Cecil Court (28)\" (inode: 84672992) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"J. K. Rowling/The Christmas Pig (18)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Howey, Hugh/Second Shift - Order (Part 7 of the Silo Series) (Wool) (57)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"J.K. Rowling/Harry Potter and the Order of the Phoenix (4)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Fred Anderson/The War That Made America - A Short History of the French and Indian War\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.626Z","message":"Library item \"Hugh Howey/The Shell Collector (38)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Hugh Howey/Peace in Amber\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"J.K. Rowling/Harry Potter and the Goblet of Fire (16)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Wizards of the Coast/Xanathar’s Guide to Everything\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"J. K. Rowling/Fantastic Beasts and Where to Find Them (13)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library Item \"/audiobooks/Genevieve Jack/Mother May I (Knight Games Book 4) (32)\" (inode: 84673005) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"George R.R. Martin/Fire & Blood\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Hugh Howey/Across the Sand (40)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library Item \"/audiobooks/Genevieve Jack/The Angel of Paragon (21)\" (inode: 84672969) is missing","levelName":"WARN","level":3}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Timothy Zahn/Dark Force Rising\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Walter Isaacson/The Code Breaker - Jennifer Doudna, Gene Editing, and the Future of the Human Race\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Library item \"Hugh Howey/Beacon 23_ Part 3_ Bounty (Kindle Single) (46)\" is up-to-date","levelName":"DEBUG","level":1}
+{"timestamp":"2025-03-07T23:16:41.627Z","message":"Scan completed. 0 Added | 0 Updated | 8 Missing","levelName":"INFO","level":2}

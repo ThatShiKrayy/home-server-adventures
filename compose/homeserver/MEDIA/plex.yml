@@ -1,0 +1,85 @@
+services:
+  # Plex - Media Server
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    networks:
+    - t3_proxy
+    - socket_proxy
+    security_opt:
+    - no-new-privileges:true
+    # user: $PUID:$PGID
+    restart: "unless-stopped"
+    devices:
+    - /dev/dri:/dev/dri
+    ports:
+    - target: 32400
+      published: 32400
+      protocol: tcp
+      mode: host
+    - target: 32400
+      published: 32400
+      protocol: udp
+      mode: host
+    - target: 3005
+      published: 3005
+      protocol: tcp
+      mode: host
+    - target: 8324
+      published: 8324
+      protocol: tcp
+      mode: host
+    - target: 32469
+      published: 32469
+      protocol: tcp
+      mode: host
+    - target: 1900
+      published: 1901
+      protocol: udp
+      mode: host
+    - target: 32410
+      published: 32410
+      protocol: udp
+      mode: host
+    - target: 32412
+      published: 32412
+      protocol: udp
+      mode: host
+    - target: 32413
+      published: 32413
+      protocol: udp
+      mode: host
+    - target: 32414
+      published: 32414
+      protocol: udp
+      mode: host
+    volumes:
+    - $DOCKERDIR/appdata/plex:/config
+    - $DATADIR:/data/media
+    #- /dev/shm:/data/transcode
+    - /dev/dri:/data/transcode
+    environment:
+      TZ: $TZ
+      HOSTNAME: "WorleyMediaServer"
+      PLEX_CLAIM_FILE: /run/secrets/plex_claim # Not required initially
+      PLEX_UID: $PUID
+      PLEX_GID: $PGID
+      ADVERTISE_IP: "http://$SERVER_IP:32400/,https://plex.$DOMAINNAME_1:32400"
+      ALLOWED_NETWORKS: $LOCAL_IPS
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:32400/identity
+      interval: 1m00s
+      retries: 3
+      start_period: 1m00s
+    secrets:
+    - plex_claim
+    labels:
+    - "traefik.enable=true"
+    # HTTP Routers
+    - "traefik.http.routers.plex-rtr.entrypoints=websecure"
+    - "traefik.http.routers.plex-rtr.rule=Host(`plex.$DOMAINNAME_1`)"
+    # Middlewares
+    - "traefik.http.routers.plex-rtr.middlewares=chain-no-auth@file"
+    # HTTP Services
+    - "traefik.http.routers.plex-rtr.service=plex-svc"
+    - "traefik.http.services.plex-svc.loadbalancer.server.port=32400"

@@ -1,0 +1,13 @@
+services:
+  xteve:
+    container_name: xteve
+    image: ghcr.io/akosveres/xteve-arm64:latest
+    restart: unless-stopped
+    ports:
+      - "34400:34400"
+    volumes:
+      - $APPDIR/xsteve/.xteve:/xteve:rw
+      - $APPDIR/xsteve/config/:/config:rw
+      - $APPDIR/xsteve/guide2go/:/guide2go:rw
+      - $APPDIR/xsteve/playlists/:/playlists:rw
+      - $APPDIR/xsteve/tmp/:/tmp/xteve:rw

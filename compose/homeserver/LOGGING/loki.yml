@@ -1,0 +1,13 @@
+services:
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    user: $PUID:$PGID
+    networks:
+    - socket_proxy
+    ports:
+    - "3103:3100"
+    volumes:
+    - $APPDIR/loki/loki-config.yaml:/etc/loki/loki-config.yaml
+    - $LOGDIR/loki:/var/log
+    command: -config.file=/etc/loki/loki-config.yaml

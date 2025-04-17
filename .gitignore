@@ -1,0 +1,8 @@
+.env
+secrets/
+*.log
+*.bak
+__pycache__/
+appdata/
+vault.yml
+logs/

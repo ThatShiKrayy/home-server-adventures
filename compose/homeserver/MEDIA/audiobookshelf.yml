@@ -1,0 +1,17 @@
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    networks:
+    - socket_proxy
+    user: $PUID:$PGID
+    ports:
+    - 13378:80
+    volumes:
+    - $DATADIR/books:/data/books
+    - $DATADIR/audiobooks:/data/audiobooks
+    - $DATADIR/podcasts:/data/podcasts
+    - $DOCKERDIR/appdata/audiobookshelf:/config
+    - $DATADIR/metadata:/metadata
+    environment:
+    - TZ=$TZ

@@ -1,0 +1,154 @@
+########################### NETWORKS
+networks:
+  default:
+    driver: bridge
+  socket_proxy:
+    name: socket_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.51.0/24
+  t3_proxy:
+    name: t3_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.52.0/24
+  overseer_backend:
+    name: overseer_backend
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.53.0/24
+  crowdsec:
+    driver: bridge
+########################### SECRETS
+secrets:
+  sonarr_api:
+    file: ${DOCKERDIR}/secrets/sonarr_api
+  radarr_api:
+    file: ${DOCKERDIR}/secrets/radarr_api
+  prowlarr_api:
+    file: ${DOCKERDIR}/secrets/prowlarr_api
+  lidarr_api:
+    file: ${DOCKERDIR}/secrets/lidarr_api
+  adguard_password:
+    file: ${DOCKERDIR}/secrets/adguard_password
+  plex_token:
+    file: ${DOCKERDIR}/secrets/plex_token
+  plex_claim:
+    file: ${DOCKERDIR}/secrets/plex_claim
+  cf_dns_api_token:
+    file: ${DOCKERDIR}/secrets/cf_dns_api_token
+  traefik_crowdsec_api:
+    file: ${DOCKERDIR}/secrets/traefik_crowdsec_api
+  crowdsec_lapi_key:
+    file: ${DOCKERDIR}/secrets/crowdsec_lapi_key
+  cf_bouncer_token:
+    file: ${DOCKERDIR}/secrets/cf_bouncer_token
+  cf_bouncer_api:
+    file: ${DOCKERDIR}/secrets/cf_bouncer_API
+  access_token_secret:
+    file: ${DOCKERDIR}/secrets/access_token_secret
+  refresh_token_secret:
+    file: ${DOCKERDIR}/secrets/refresh_token_secret
+  romm_auth_secret_key:
+    file: ${DOCKERDIR}/secrets/romm_auth_secret_key
+  mariadb_root_password:
+    file: ${DOCKERDIR}/secrets/mariadb_root_password
+  mariadb_romm_password:
+    file: ${DOCKERDIR}/secrets/mariadb_romm_password
+  mariadb_wallabag_password:
+    file: ${DOCKERDIR}/secrets/mariadb_wallabag_password
+  igdb_client_secret:
+    file: ${DOCKERDIR}/secrets/igdb_client_secret
+  igdb_client_id:
+    file: ${DOCKERDIR}/secrets/igdb_client_id
+  gmail_smtp_username:
+    file: ${DOCKERDIR}/secrets/gmail_smtp_username
+  gmail_smtp_password:
+    file: ${DOCKERDIR}/secrets/gmail_smtp_password
+  openai_mealie_key:
+    file: ${DOCKERDIR}/secrets/openai_mealie_key
+  dbgate_password:
+    file: ${DOCKERDIR}/secrets/dbgate_password
+  google_search_api:
+    file: ${DOCKERDIR}/secrets/google_search_api
+  creds_iv:
+    file: ${DOCKERDIR}/secrets/creds_iv
+  creds_key:
+    file: ${DOCKERDIR}/secrets/creds_key
+  meili_master_key:
+    file: ${DOCKERDIR}/secrets/meili_master_key
+  openai_librechat_api:
+    file: ${DOCKERDIR}/secrets/openai_librechat_api
+  postgres_password:
+    file: ${DOCKERDIR}/secrets/postgres_password
+include:
+  # SERVICES
+  #- compose/$HOSTNAME/resume.yml
+  #- compose/$HOSTNAME/chrome.yml
+  - compose/$UTILITY/adguard.yml
+  #- compose/$HOSTNAME/homepage.yml
+  - compose/$UTILITY/hass.yml
+  #- compose/$HOSTNAME/flaresolver.yml
+  #- compose/$HOSTNAME/glances.yml
+  #- compose/$HOSTNAME/mealie.yml
+  - compose/$MEDIA/bazarr.yml
+  - compose/$MEDIA/bazarr_anime.yml
+  - compose/$MEDIA/tautulli.yml
+  #- compose/$HOSTNAME/plex-prerolls.yml
+  #- compose/$HOSTNAME/gotify.yml
+  #- compose/$HOSTNAME/igotify.yml
+  #- compose/$HOSTNAME/xsteve.yml
+  #- compose/$HOSTNAME/firefox.yml
+  - compose/$UTILITY/threadfin.yml
+  #- compose/$HOSTNAME/telly.yml
+  - compose/$UTILITY/grocy.yml
+  - compose/$UTILITY/web.yml
+
+  # DATABASE
+  #- compose/$HOSTNAME/postgresql.yml
+  #- compose/$HOSTNAME/redis.yml
+  #- compose/$HOSTNAME/mariadb.yml
+  #- compose/$HOSTNAME/minio.yml
+
+  # MEDIA
+  - compose/$MEDIA/audiobookshelf.yml
+  - compose/$MEDIA/jellyfin.yml
+  - compose/$MEDIA/plex.yml
+
+  # DOWNLOADERS
+  - compose/$DOWNLOADERS/sabnzbd.yml
+
+  # PVRS
+  - compose/$PVRS/lidarr.yml
+  - compose/$UTILITY/overseerr.yml
+  - compose/$PVRS/prowlarr.yml
+  - compose/$PVRS/radarr.yml
+  - compose/$PVRS/readarr.yml
+  - compose/$PVRS/suwayomi.yml
+  - compose/$PVRS/sonarr.yml
+  - compose/$PVRS/readarr_audio.yml
+  - compose/$PVRS/configarr.yml
+  - compose/$PVRS/sonarr_anime.yml
+  - compose/$PVRS/whisparr.yml
+
+  # PROXY/NETWORK MANAGEMENT
+  - compose/$PROXY/socket-proxy.yml
+  - compose/$PROXY/traefik.yml
+  - compose/$PROXY/whoami.yml
+
+  # LOG_PROPOGATION
+  #- compose/$HOSTNAME/grafana.yml
+  #- compose/$HOSTNAME/loki.yml
+  #- compose/$HOSTNAME/prometheus.yml
+  #- compose/$HOSTNAME/promtail.yml
+  #- compose/$HOSTNAME/syslog-ng.yml
+  #- compose/$HOSTNAME/node.yml
+
+  # STAGING
+  # - compose/$HOSTNAME/whoami2.yml
+  # - compose/$HOSTNAME/crowdsec.yml
+  # - compose/$HOSTNAME/cloudflare-worker.yml
+  # - compose/$HOSTNAME/traefik-bouncer.yml

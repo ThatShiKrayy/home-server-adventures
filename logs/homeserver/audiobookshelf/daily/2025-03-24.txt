@@ -1,0 +1,2 @@
+{"timestamp":"2025-03-24 00:40:10.574","source":"SocketAuthority.js:139","message":"[SocketAuthority] Socket Connected to /audiobookshelf/socket.io c7zZuUSgTnJDVmfXAAA1","levelName":"INFO","level":2}
+{"timestamp":"2025-03-24 00:42:59.844","source":"SocketAuthority.js:166","message":"[SocketAuthority] Socket c7zZuUSgTnJDVmfXAAA1 disconnected from client \"root\" after 169270ms (Reason: transport close)","levelName":"INFO","level":2}

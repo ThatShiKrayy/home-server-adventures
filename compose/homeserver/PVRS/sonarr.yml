@@ -1,0 +1,29 @@
+services:
+  sonarr:
+    container_name: sonarr
+    environment:
+      TZ: $TZ
+      PUID: $PUID
+      PGID: $PGID
+    healthcheck:
+      test: curl -f http://localhost:8989/ping || exit 1
+      interval: 5m00s
+      timeout: 10s
+      retries: 2
+      start_period: 30s
+    image: ghcr.io/home-operations/sonarr:4.0.14.2938
+    networks:
+    - default
+    - socket_proxy
+    ports:
+    - "8989:8989"
+    restart: "unless-stopped"
+    security_opt:
+    - no-new-privileges:true
+    user: $PUID:$PGID
+    volumes:
+    - $DOCKERDIR/appdata/sonar:/config
+    - $DATADIR/TV:/data/TV
+    - $DOWNDIR:/data/downloads
+    - "/etc/localtime:/etc/localtime:ro"
+    - $LOGDIR/sonarr:/var/log

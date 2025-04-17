@@ -1,0 +1,24 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    networks:
+    - socket_proxy
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    volumes:
+    - $DOCKERDIR/appdata/prowlar:/config
+    - $LOGDIR/prowlarr:/var/log
+    - $DOWNDIR:/data/downloads
+    user: $PUID:$PGID
+    ports:
+    - 9696:9696
+    healthcheck:
+      test: curl -f http://localhost:9696/ping || exit 1
+      interval: 5m00s
+      timeout: 10s
+      retries: 2
+      start_period: 30s
+    restart: unless-stopped

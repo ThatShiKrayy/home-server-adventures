@@ -1,0 +1,21 @@
+services:
+  web:
+    container_name: web
+    image: nginx:latest
+    ports:
+    - "8080:80"
+    - "4443:443"
+    volumes:
+    - $APPDIR/web/html:/usr/share/nginx/html
+    networks:
+    - t3_proxy
+    labels:
+    - "traefik.enable=true"
+ # HTTP Routers
+    - "traefik.http.routers.ws-rtr.entrypoints=websecure"
+    - "traefik.http.routers.ws-rtr.rule=Host(`scott.$DOMAINNAME_1`)"
+ # Middlewares
+    - "traefik.http.routers.ws-rtr.middlewares=chain-no-auth@file"
+ # HTTP Services
+    - "traefik.http.routers.ws-rtr.service=ws-svc"
+    - "traefik.http.services.ws-svc.loadbalancer.server.port=80"

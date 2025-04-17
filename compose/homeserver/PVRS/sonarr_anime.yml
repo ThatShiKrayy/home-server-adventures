@@ -1,0 +1,28 @@
+services:
+  sonarr_anime:
+    container_name: sonarr_anime
+    environment:
+      TZ: $TZ
+      PUID: $PUID
+      PGID: $PGID
+    healthcheck:
+      test: curl -f http://localhost:8989/ping || exit 1
+      interval: 5m00s
+      timeout: 10s
+      retries: 2
+      start_period: 30s
+    image: ghcr.io/home-operations/sonarr:4.0.14.2938
+    networks:
+    - default
+    - socket_proxy
+    ports:
+    - "9999:8989"
+    restart: "unless-stopped"
+    security_opt:
+    - no-new-privileges:true
+    user: $PUID:$PGID
+    volumes:
+    - $DOCKERDIR/appdata/sonar_anime:/config
+    - $DATADIR/anime:/data/anime
+    - $DOWNDIR:/data/downloads
+    - "/etc/localtime:/etc/localtime:ro"

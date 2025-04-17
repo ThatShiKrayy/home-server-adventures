@@ -1,0 +1,23 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    # security_opt:
+    # - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+    - socket_proxy
+    ports:
+    - "3000:3000"
+    volumes:
+    - $DOCKERDIR/appdata/homepage:/app/config
+    - $LOGDIR/homepage:/var/log
+    env_file: $DOCKERDIR/.env
+    environment:
+    - TZ=$TZ
+    - PUID=$PUID
+    - PGID=$PGID
+    secrets:
+    - plex_token
+    - radarr_api
+    - sonarr_api

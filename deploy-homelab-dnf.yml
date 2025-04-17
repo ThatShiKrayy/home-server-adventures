@@ -1,0 +1,62 @@
+---
+- name: Deploy Docker Homelab on Asahi Linux (ARM64 + DNF)
+  hosts: homeserver
+  become: true
+
+  vars:
+    docker_compose_dir: /home/media/docker
+    compose_files:
+      - docker-compose-homeserver.yml
+    secrets_dir: secrets
+    env_file: .env
+    vars_files:
+      - vault.yml
+
+  tasks:
+    - name: Ensure Docker is installed (using dnf)
+      dnf:
+        name: docker
+        state: present
+        update_cache: true
+
+    - name: Enable and start Docker service
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Ensure Docker Compose plugin is installed (v2+)
+      dnf:
+        name: docker-compose-plugin
+        state: present
+        update_cache: true
+
+    - name: Create Docker compose directory if it doesn't exist
+      file:
+        path: "{{ docker_compose_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copy Compose files
+      copy:
+        src: "{{ item }}"
+        dest: "{{ docker_compose_dir }}/{{ item }}"
+        mode: '0644'
+      loop: "{{ compose_files }}"
+
+    - name: Copy .env file
+      copy:
+        src: "{{ env_file }}"
+        dest: "{{ docker_compose_dir }}/.env"
+        mode: '0600'
+
+    - name: Copy secrets directory
+      copy:
+        src: "{{ secrets_dir }}"
+        dest: "{{ docker_compose_dir }}/secrets"
+        mode: '0400'
+        owner: root
+        group: root
+
+    - name: Start Docker Compose stack
+      command: docker compose -f {{ docker_compose_dir }}/docker-compose-homeserver.yml up -d
