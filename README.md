@@ -1,5 +1,5 @@
 # 🧠 Scott Worley's Homelab Stack
-<<<<<<< HEAD
+
 =======
 ![Docker Compose](https://img.shields.io/badge/docker--compose-modular-blue?logo=docker)
 ![License](https://img.shields.io/github/license/ThatShiKrayy/home-server-adventures)
