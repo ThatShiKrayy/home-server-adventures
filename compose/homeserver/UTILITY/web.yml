@@ -1,5 +1,5 @@
 services:
-   secure-nginx:
+   web:
       build: $APPDIR/web/df/
       container_name: web
       restart: unless-stopped
