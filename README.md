@@ -134,16 +134,16 @@ Tip: If viewing from GitHub and Mermaid isn’t rendering, you can preview the d
 ## ⚙️ Getting Started
 
 Prerequisites
-Linux-based system (tested on Asahi Linux)
-Docker & Docker Compose (v2+)
-Registered domain name
-Cloudflare account with API token (for ACME DNS-01)
-Deployment
-git clone https://github.com/ThatShiKrayy/home-server-adventures.git
-cd home-server-adventures/docker
-cp .env.example .env       # Edit paths and domain details
-chmod 0400 secrets/*       # Secure your secrets
-docker compose -f docker-compose-homeserver.yml up -d
+- Linux-based system (tested on Asahi Linux)
+- Docker & Docker Compose (v2+)
+- Registered domain name
+- Cloudflare account with API token (for ACME DNS-01)
+- Deployment
+- git clone https://github.com/ThatShiKrayy/home-server-adventures.git
+- cd home-server-adventures/docker
+- cp .env.example .env       # Edit paths and domain details
+- chmod 0400 secrets/*       # Secure your secrets
+- docker compose -f docker-compose-homeserver.yml up -d
 
 ## 🤝 Contributing
 
@@ -155,7 +155,7 @@ This project is licensed under the MIT License. See LICENSE for details.
 
 ## 🔭 Future Plans
 
-Add Ansible automation and secrets vaulting
-Integrate monitoring (Grafana/Prometheus or Uptime Kuma)
-Explore Terraform for DNS provisioning
-Build a Dashy homepage for UI-based navigation
+- Add Ansible automation and secrets vaulting
+- Integrate monitoring (Grafana/Prometheus or Uptime Kuma)
+- Explore Terraform for DNS provisioning
+- Build a Dashy homepage for UI-based navigation
