@@ -33,14 +33,15 @@ Welcome to my homelab — a fully modular, containerized self-hosting environmen
 
 ## 🧱 Stack Overview
 
-All services are organized into modular YAML files within the `compose/` directory, categorized as follows:
+| Category     | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| **Media**    | Hosts and streams personal media libraries                                 |
+| **PVRS**     | Automates media acquisition and management                                 |
+| **Proxy**    | Handles secure routing, TLS termination, and reverse proxying              |
+| **Security** | Provides adaptive protection against threats and suspicious traffic        |
+| **Utility**  | Supports day-to-day operations (inventory, dashboards, etc.)               |
 
-Category	Services
-Media	Plex, Jellyfin, Overseerr
-PVRS	Radarr, Sonarr, SabNZBD
-Proxy	Traefik
-Security	CrowdSec
-Utility	Grocy
+---
 
 ## 🔐 Security Practices
 
@@ -69,6 +70,7 @@ docker/
 ├── appdata/                        # Bind mounts for persistent container data
 └── .env                            # Path variables (no secrets)
 ```
+---
 
 ## 🚀 Deployed Services
 
@@ -80,9 +82,13 @@ docker/
 | **Security** | CrowdSec                           |
 | **Utility**  | Grocy                              |
 
+---
+
 ## 📊 Architecture Diagram
 
 [![](https://mermaid.ink/img/pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC?type=png)](https://mermaid.live/edit#pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC)   
+
+---
 
 ## ⚙️ Getting Started
 
@@ -98,13 +104,19 @@ Prerequisites
 - chmod 0400 secrets/*       # Secure your secrets
 - docker compose -f docker-compose-homeserver.yml up -d
 
+---
+
 ## 🤝 Contributing
 
 Suggestions, issues, and contributions are welcome! Open a pull request or file an issue — feedback is how we grow. 🚀
 
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License. See LICENSE for details.
+
+---
 
 ## 🔭 Future Plans
 
