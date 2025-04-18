@@ -132,7 +132,6 @@ include:
   - compose/$PVRS/readarr_audio.yml
   - compose/$PVRS/configarr.yml
   - compose/$PVRS/sonarr_anime.yml
-  - compose/$PVRS/whisparr.yml
 
   # PROXY/NETWORK MANAGEMENT
   - compose/$PROXY/socket-proxy.yml
