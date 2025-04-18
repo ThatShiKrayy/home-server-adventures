@@ -1,6 +1,8 @@
 services:
    web:
-      build: $APPDIR/web/df/
+      build:
+         context: ../../../appdata/web # relative to web.yml
+         dockerfile: df/Dockerfile # inside that context
       container_name: web
       restart: unless-stopped
       ports:
@@ -11,6 +13,7 @@ services:
        - $APPDIR/web/nginx.conf:/etc/nginx/nginx.conf:ro
       networks:
        - t3_proxy
+       - socket_proxy
       labels:
        - "traefik.enable=true"
        # HTTP Routers
