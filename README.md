@@ -1,166 +1,154 @@
-# 🧠 Scott Worley's Homelab Stack
+# 🧠 Home Server Adventures
 
-![Docker Compose](https://img.shields.io/badge/docker--compose-modular-blue?logo=docker)
+![Docker Compose](https://img.shields.io/badge/built%20with-Docker%20Compose-blue)
+![Version](https://img.shields.io/badge/version-1.0-green)
 ![License](https://img.shields.io/github/license/ThatShiKrayy/home-server-adventures)
-![Last Commit](https://img.shields.io/github/last-commit/ThatShiKrayy/home-server-adventures)
-![Status](https://img.shields.io/badge/status-in_progress-yellow)
-![Built With](https://img.shields.io/badge/built%20with-Ansible%20%7C%20Docker%20%7C%20CrowdSec-0e7a0d)
->>>>>>
 
-> A modular, secure, and obsessively documented Docker Compose-based homelab.  
-> Built to run 24/7, survive the apocalypse, and make Plex purr.
-
-![Homelab Stack Banner](img/readme-banner.png)
+Welcome to my homelab — a fully modular, containerized self-hosting environment built with Docker Compose, Traefik, and strict security best practices. This project serves as both a personal infrastructure and a professional showcase of secure, scalable homelab deployment.
 
 ---
 
-## 📦 What This Is
-
-This repo contains my **Docker Compose stack** for my personal homelab, organized by category and designed to be portable, maintainable, and secure.
-
-It includes everything from media automation and personal dashboards to reverse proxying and self-hosted utilities—with secrets and security configs abstracted out.
-
----
-
-## 🧱 Architecture
-
-- **Modular YAMLs** per service (`compose/homeserver/`)
-- **Grouped by function**: MEDIA, PVRS, PROXY, DOWNLOADERS, etc.
-- **Traefik** as reverse proxy with DNS-01 Cloudflare TLS
-- **CrowdSec** for dynamic firewall defense
-- **Secrets** stored in `/secrets/` and excluded from version control
-- **`.env` at root** to drive paths and values across services
+## 📑 Table of Contents
+- [🎯 Project Goals](#-project-goals)
+- [🧱 Stack Overview](#-stack-overview)
+- [🔐 Security Practices](#-security-practices)
+- [📁 Directory Structure](#-directory-structure)
+- [🚀 Deployed Services](#-deployed-services)
+- [📊 Architecture Diagram](#-architecture-diagram)
+- [⚙️ Getting Started](#️-getting-started)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
-## 📊 Diagram
+## 🎯 Project Goals
 
-```
-+---------------------+
-|     User Access     |
-+----------+----------+
-           |
-           v
-+---------------------+      +-------------------+
-|      Cloudflare     | ---> |     DNS Records   |
-+---------------------+      +-------------------+
-           |
-           v
-+---------------------+
-|      Traefik        | <--> CrowdSec (LAPI)
-|  Reverse Proxy      |
-+----+----+----+------+
-     |    |    |
-     |    |    +--> Plex
-     |    +--> Overseerr
-     +--> Grocy
-     ...  (and more)
-```
+- Showcase a secure, production-style home server deployment using modern DevOps principles
+- Maintain modular, readable, and reusable Docker Compose files
+- Secure all services with DNS-01 ACME certs and Traefik middleware
+- Automate deployment with Ansible (future phase)
+- Document the architecture for transparency and collaboration
 
 ---
 
-## 🧭 File Structure
+## 🧱 Stack Overview
 
-```plaintext
-.
-├── compose/
-│   └── homeserver/
-│       ├── MEDIA/
-│       ├── PVRS/
-│       ├── PROXY/
-│       └── ...
-├── secrets/              # Docker secrets (not included)
-├── secrets-template/     # Example structure for secrets
-├── .env.example          # Template .env
-├── docker-compose-homeserver.yml
-└── README.md
-```
+All services are organized into modular YAML files within the `compose/` directory, categorized as follows:
+
+| Category | Services |
+|----------|----------|
+| **MEDIA** | Plex, Jellyfin, Overseerr |
+| **PVRS**  | Radarr, Sonarr, SabNZBD |
+| **PROXY** | Traefik |
+| **SECURITY** | CrowdSec |
+| **UTILITY** | Grocy |
 
 ---
 
-## 🚀 Services Included
+## 🔐 Security Practices
 
-| Category    | Apps Included |
-|-------------|----------------|
-| **MEDIA**   | Plex, Jellyfin, Audiobookshelf, Tautulli, Bazarr |
-| **PVRS**    | Sonarr, Radarr, Lidarr, Readarr, Prowlarr, Whisparr, Suwayomi |
-| **PROXY**   | Traefik, Socket Proxy, CrowdSec |
-| **UTILITY** | Grocy, AdGuard, Home Assistant, Mealie |
-| **DOWNLOADERS** | SabNZBD |
-| **LOGGING** | Grafana, Loki, Promtail, Syslog-ng |
-| **DATABASE** | Postgres, MariaDB, Redis |
+- All secrets are abstracted into individual files inside the `secrets/` folder
+- File permissions are set to `0400` for maximum security
+- `.env` at the root manages non-sensitive variables and pathing
+- No secrets or tokens are hardcoded in Compose files
+- Traefik is locked down using SNI strict mode, custom TLS ciphers, and Cloudflare DNS-01 challenges
+- API dashboards and web entrypoints are gated behind middleware
 
 ---
 
-## ⚙️ Usage
+## 📁 Directory Structure
 
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/homelab-compose.git
-cd homelab-compose
+docker/
+├── docker-compose-homeserver.yml   # Root-level orchestration file
+├── compose/                        # Modular compose service files
+│   ├── media/
+│   ├── proxy/
+│   ├── pvrs/
+│   ├── utility/
+│   └── security/
+├── secrets/                        # Individual secret files (0400 permissions)
+├── shared/                         # Shared configs, certs, etc.
+├── appdata/                        # Bind mounts for persistent container data
+└── .env                            # Path variables (no secrets)
+🚀 Deployed Services
 
-# Copy and edit your environment variables
-cp .env.example .env
-nano .env
 
-# Bring the stack up
+Category	Services
+Media	Plex, Jellyfin, Overseerr
+PVRS	Radarr, Sonarr, SabNZBD
+Proxy	Traefik
+Security	CrowdSec
+Utility	Grocy
+📊 Architecture Diagram
+
+graph TD
+    subgraph Reverse Proxy
+        Traefik
+    end
+
+    subgraph Media
+        Plex
+        Jellyfin
+        Overseerr
+    end
+
+    subgraph PVRS
+        Radarr
+        Sonarr
+        SabNZBD
+    end
+
+    subgraph Utility
+        Grocy
+    end
+
+    subgraph Security
+        CrowdSec
+    end
+
+    User -->|Web UI| Traefik
+    Traefik -->|Routes to| Plex
+    Traefik --> Jellyfin
+    Traefik --> Overseerr
+    Traefik --> Radarr
+    Traefik --> Sonarr
+    Traefik --> SabNZBD
+    Traefik --> Grocy
+
+    CrowdSec -->|Monitors| Traefik
+    CrowdSec -->|Protects| All
+
+    subgraph Data Volumes
+        Volumes[(Bind Mounts: appdata/)]
+    end
+
+    All --> Volumes
+Tip: If viewing from GitHub and Mermaid isn’t rendering, you can preview the diagram in tools like Mermaid Live Editor or use a static PNG.
+⚙️ Getting Started
+
+Prerequisites
+Linux-based system (tested on Asahi Linux)
+Docker & Docker Compose (v2+)
+Registered domain name
+Cloudflare account with API token (for ACME DNS-01)
+Deployment
+git clone https://github.com/ThatShiKrayy/home-server-adventures.git
+cd home-server-adventures/docker
+cp .env.example .env       # Edit paths and domain details
+chmod 0400 secrets/*       # Secure your secrets
 docker compose -f docker-compose-homeserver.yml up -d
-```
+🤝 Contributing
 
----
+Suggestions, issues, and contributions are welcome! Open a pull request or file an issue — feedback is how we grow. 🚀
 
-## 🔐 Secrets
+📄 License
 
-All secrets (API keys, tokens, passwords) are stored in individual files in `secrets/`, and never committed to Git.
+This project is licensed under the MIT License. See LICENSE for details.
 
-**Example:**
+🔭 Future Plans
 
-```bash
-secrets/
-├── plex_token
-├── cloudflare_api_token
-├── traefik_crowdsec_api
-└── ...
-```
-
-> See `secrets-template/` for placeholders you can use to replicate this structure.
-
----
-
-## 🛡️ Security
-
-- Docker secrets stored with `0400` permissions
-- TLS with DNS-01 challenge via Cloudflare
-- CrowdSec integrated into Traefik with bouncer
-- API/Dashboard routes protected by middleware or firewall rules
-
----
-
-## 🧠 Philosophy
-
-> “I build like it’s production, even if it’s just for my living room.”
-
-This stack is designed to showcase security-first design, composability, and clean documentation—for anyone wanting to roll their own infrastructure like a pro.
-
----
-
-## 🛠️ Tools You’ll Want
-
-- Docker & Docker Compose plugin
-- Ansible (optional)
-- Gitleaks (for pre-push scans)
-- Uptime Kuma, Dashy or Homepage (dashboard tools)
-
----
-
-## 📜 License
-
-MIT. Use, fork, adapt, and remix as you like.
-
----
-
-## ⚡ Author
-
-**Scott Worley** – [scott.worleys.us](https://scott.worleys.us)
-
-Built with caffeine, curiosity, and a deeply unhealthy relationship with logs.
+Add Ansible automation and secrets vaulting
+Integrate monitoring (Grafana/Prometheus or Uptime Kuma)
+Explore Terraform for DNS provisioning
+Build a Dashy homepage for UI-based navigation

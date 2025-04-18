@@ -8,3 +8,4 @@ vault.yml
 logs/
 hosts.ini
 compose/homeserver/PVRS/whisparr.yml
+/backups
