@@ -85,6 +85,7 @@ Utility	Grocy
 
 ## 📊 Architecture Diagram
 
+```
 graph TD
     subgraph Reverse Proxy
         Traefik
@@ -127,6 +128,7 @@ graph TD
     end
 
     All --> Volumes
+```    
 Tip: If viewing from GitHub and Mermaid isn’t rendering, you can preview the diagram in tools like Mermaid Live Editor or use a static PNG.
 
 ## ⚙️ Getting Started
