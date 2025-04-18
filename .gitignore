@@ -10,3 +10,4 @@ hosts.ini
 compose/homeserver/PVRS/whisparr.yml
 /backups
 compose1/
+compose2/
