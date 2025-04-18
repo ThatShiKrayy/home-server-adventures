@@ -35,15 +35,12 @@ Welcome to my homelab — a fully modular, containerized self-hosting environmen
 
 All services are organized into modular YAML files within the `compose/` directory, categorized as follows:
 
-| Category | Services |
-|----------|----------|
-| **MEDIA** | Plex, Jellyfin, Overseerr |
-| **PVRS**  | Radarr, Sonarr, SabNZBD |
-| **PROXY** | Traefik |
-| **SECURITY** | CrowdSec |
-| **UTILITY** | Grocy |
-
----
+Category	Services
+Media	Plex, Jellyfin, Overseerr
+PVRS	Radarr, Sonarr, SabNZBD
+Proxy	Traefik
+Security	CrowdSec
+Utility	Grocy
 
 ## 🔐 Security Practices
 
@@ -75,13 +72,13 @@ docker/
 
 ## 🚀 Deployed Services
 
-
-Category	Services
-Media	Plex, Jellyfin, Overseerr
-PVRS	Radarr, Sonarr, SabNZBD
-Proxy	Traefik
-Security	CrowdSec
-Utility	Grocy
+| Category     | Services                          |
+|--------------|-----------------------------------|
+| **Media**    | Plex, Jellyfin, Overseerr          |
+| **PVRS**     | Radarr, Sonarr, SabNZBD            |
+| **Proxy**    | Traefik                            |
+| **Security** | CrowdSec                           |
+| **Utility**  | Grocy                              |
 
 ## 📊 Architecture Diagram
 
