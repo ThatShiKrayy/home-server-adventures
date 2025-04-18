@@ -7,4 +7,4 @@ appdata/
 vault.yml
 logs/
 hosts.ini
-compose/homeserver/whisparr.yml
+compose/homeserver/PVRS/whisparr.yml
