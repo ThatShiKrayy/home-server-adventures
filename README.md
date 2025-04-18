@@ -71,7 +71,9 @@ docker/
 ├── shared/                         # Shared configs, certs, etc.
 ├── appdata/                        # Bind mounts for persistent container data
 └── .env                            # Path variables (no secrets)
-🚀 Deployed Services
+```
+
+## 🚀 Deployed Services
 
 
 Category	Services
@@ -80,7 +82,8 @@ PVRS	Radarr, Sonarr, SabNZBD
 Proxy	Traefik
 Security	CrowdSec
 Utility	Grocy
-📊 Architecture Diagram
+
+## 📊 Architecture Diagram
 
 graph TD
     subgraph Reverse Proxy
@@ -125,7 +128,8 @@ graph TD
 
     All --> Volumes
 Tip: If viewing from GitHub and Mermaid isn’t rendering, you can preview the diagram in tools like Mermaid Live Editor or use a static PNG.
-⚙️ Getting Started
+
+## ⚙️ Getting Started
 
 Prerequisites
 Linux-based system (tested on Asahi Linux)
@@ -138,15 +142,16 @@ cd home-server-adventures/docker
 cp .env.example .env       # Edit paths and domain details
 chmod 0400 secrets/*       # Secure your secrets
 docker compose -f docker-compose-homeserver.yml up -d
-🤝 Contributing
+
+## 🤝 Contributing
 
 Suggestions, issues, and contributions are welcome! Open a pull request or file an issue — feedback is how we grow. 🚀
 
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License. See LICENSE for details.
 
-🔭 Future Plans
+## 🔭 Future Plans
 
 Add Ansible automation and secrets vaulting
 Integrate monitoring (Grafana/Prometheus or Uptime Kuma)
