@@ -2,7 +2,7 @@ services:
    web:
       build:
          context: ../../../appdata/web # relative to web.yml
-         dockerfile: df/Dockerfile # inside that context
+         dockerfile: Dockerfile # inside that context
       container_name: web
       restart: unless-stopped
       ports:
