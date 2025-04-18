@@ -85,51 +85,7 @@ Utility	Grocy
 
 ## 📊 Architecture Diagram
 
-```
-graph TD
-    subgraph Reverse Proxy
-        Traefik
-    end
-
-    subgraph Media
-        Plex
-        Jellyfin
-        Overseerr
-    end
-
-    subgraph PVRS
-        Radarr
-        Sonarr
-        SabNZBD
-    end
-
-    subgraph Utility
-        Grocy
-    end
-
-    subgraph Security
-        CrowdSec
-    end
-
-    User -->|Web UI| Traefik
-    Traefik -->|Routes to| Plex
-    Traefik --> Jellyfin
-    Traefik --> Overseerr
-    Traefik --> Radarr
-    Traefik --> Sonarr
-    Traefik --> SabNZBD
-    Traefik --> Grocy
-
-    CrowdSec -->|Monitors| Traefik
-    CrowdSec -->|Protects| All
-
-    subgraph Data Volumes
-        Volumes[(Bind Mounts: appdata/)]
-    end
-
-    All --> Volumes
-```    
-Tip: If viewing from GitHub and Mermaid isn’t rendering, you can preview the diagram in tools like Mermaid Live Editor or use a static PNG.
+[![](https://mermaid.ink/img/pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC?type=png)](https://mermaid.live/edit#pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC)   
 
 ## ⚙️ Getting Started
 
