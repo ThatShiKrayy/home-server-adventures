@@ -86,7 +86,46 @@ docker/
 
 ## 📊 Architecture Diagram
 
-[![](https://mermaid.ink/img/pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC?type=png)](https://mermaid.live/edit#pako:eNp1U11v2jAU_SvRfVqlwPJByMfDpLVIVSexISid1KYPJrmA1cRGjrPBgP8-J4HGAeEn33PPuR9H9h4SniJEsBJkszaeRzEz1CnKRQNM8Q-KAo2J4Ntdk6vOsyC4pB8NgCyN2YVujCklLX-S4baNfmCW7ZaUtcivugsKcbvi5GU6awVTkpIzuzozzroxWfx8vR_dLjeXNKNSW-lR8GR3mz_DpBQdwYPgf1MFX2nmBQqj1_t2-I0LY_506Lp1CmrClJcSC0Pyg-aQRrhwSs9cOKandG90XPeog-te6YmTJU3ivG49-JgzKrkoLnbrcNSTkZhIxfmeZVd-jogkxgvPyhyL1tMT8PblnrLUGPOSySIyyGaTKvrXu_crr1XpetSTEEz1kGkKkRQlmpCjyEkVwr6ixyDXmGMMkboqjz5iiNlRaTaEvXKen2WCl6s1REuSFSoqq-Y4okQNnn-iQg2B4qGaECLfCuoiEO1hC1Fv6PUt1xkMfce3LNfzfBN2ENm233fDwPMGjuvZw8EgOJrwr-5r960gsAI3HFqOFYah7ZigfpCyeNx8z4SzJV3B8T95-iGC)   
+```mermaid
+flowchart TD
+ subgraph Web_Proxy["Web_Proxy"]
+        Cloudflare["Cloudflare"]
+  end
+
+subgraph Edge_router["Edge"]
+        Asus_Router["Asus Router"]
+  end
+
+ subgraph subGraph1["Reverse Proxy"]
+        Traefik["Traefik"]
+  end
+ subgraph Media["Media"]
+        Plex["Plex"]
+        Overseerr["Overseerr"]
+  end
+ subgraph Utility["Utility"]
+        Grocy["Grocy"]
+        NGINX_Web_Server["NGINX_Web_Server"]
+  end
+ subgraph Security["Security"]
+        CrowdSec["CrowdSec"]
+  end
+ subgraph local_metadata["local_metadata"]
+        radarr["radarr"]
+        readarr["readarr"]
+        sonarr["sonarr"]
+  end
+    User["User"] -- Proxy --> Cloudflare
+    Cloudflare -- Bounce or accept --> CrowdSec
+    Traefik --> Plex & Overseerr & Grocy & NGINX_Web_Server
+    CrowdSec --> Asus_Router
+    Asus_Router -- Port Forwards 80/443 --> Traefik
+    Overseerr --> local_metadata
+
+
+
+
+```
 
 ---
 
