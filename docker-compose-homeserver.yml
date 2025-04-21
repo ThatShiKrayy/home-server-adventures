@@ -84,46 +84,28 @@ secrets:
     file: ${DOCKERDIR}/secrets/openai_librechat_api
   postgres_password:
     file: ${DOCKERDIR}/secrets/postgres_password
+  postgres_librechat_password:
+    file: ${DOCKERDIR}/secrets/postgres_librechat_password
+  postgres_librechat_user:
+    file: ${DOCKERDIR}/secrets/postgres_librechat_user
+  jwt_secret_key:
+    file: ${DOCKERDIR}/secrets/jwt_secret_key
+  jwt_refresh_secret:
+    file: ${DOCKERDIR}/secrets/jwt_refresh_secret
 include:
-  # SERVICES
-  #- compose/$HOSTNAME/resume.yml
-  #- compose/$HOSTNAME/chrome.yml
-  - compose/$UTILITY/adguard.yml
-  #- compose/$HOSTNAME/homepage.yml
-  - compose/$UTILITY/hass.yml
-  #- compose/$HOSTNAME/flaresolver.yml
-  #- compose/$HOSTNAME/glances.yml
-  #- compose/$HOSTNAME/mealie.yml
-  - compose/$MEDIA/bazarr.yml
-  - compose/$MEDIA/bazarr_anime.yml
-  - compose/$MEDIA/tautulli.yml
-  #- compose/$HOSTNAME/plex-prerolls.yml
-  #- compose/$HOSTNAME/gotify.yml
-  #- compose/$HOSTNAME/igotify.yml
-  #- compose/$HOSTNAME/xsteve.yml
-  #- compose/$HOSTNAME/firefox.yml
-  - compose/$UTILITY/threadfin.yml
-  #- compose/$HOSTNAME/telly.yml
-  - compose/$UTILITY/grocy.yml
-  - compose/$UTILITY/web.yml
-
-  # DATABASE
-  #- compose/$HOSTNAME/postgresql.yml
-  #- compose/$HOSTNAME/redis.yml
-  #- compose/$HOSTNAME/mariadb.yml
-  #- compose/$HOSTNAME/minio.yml
-
   # MEDIA
   - compose/$MEDIA/audiobookshelf.yml
   - compose/$MEDIA/jellyfin.yml
   - compose/$MEDIA/plex.yml
+  - compose/$MEDIA/bazarr.yml
+  - compose/$MEDIA/bazarr_anime.yml
+  - compose/$MEDIA/tautulli.yml
 
   # DOWNLOADERS
   - compose/$DOWNLOADERS/sabnzbd.yml
 
   # PVRS
   - compose/$PVRS/lidarr.yml
-  - compose/$UTILITY/overseerr.yml
   - compose/$PVRS/prowlarr.yml
   - compose/$PVRS/radarr.yml
   - compose/$PVRS/readarr.yml
@@ -138,16 +120,17 @@ include:
   - compose/$PROXY/traefik.yml
   - compose/$PROXY/whoami.yml
 
-  # LOG_PROPOGATION
+  # UTILITY
+  - compose/$UTILITY/adguard.yml
+  - compose/$UTILITY/hass.yml
+  - compose/$UTILITY/grocy.yml
+  - compose/$UTILITY/web.yml
+  - compose/$UTILITY/overseerr.yml
+
+  # LOG_PROPOGATION - currently staging for re-deployment
   #- compose/$HOSTNAME/grafana.yml
   #- compose/$HOSTNAME/loki.yml
   #- compose/$HOSTNAME/prometheus.yml
   #- compose/$HOSTNAME/promtail.yml
   #- compose/$HOSTNAME/syslog-ng.yml
   #- compose/$HOSTNAME/node.yml
-
-  # STAGING
-  # - compose/$HOSTNAME/whoami2.yml
-  # - compose/$HOSTNAME/crowdsec.yml
-  # - compose/$HOSTNAME/cloudflare-worker.yml
-  # - compose/$HOSTNAME/traefik-bouncer.yml
