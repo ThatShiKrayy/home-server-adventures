@@ -2,6 +2,8 @@ services:
   bazarr_anime:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr_anime
+    networks:
+    - media_backend
     environment:
     - PUID=1001
     - PGID=1001

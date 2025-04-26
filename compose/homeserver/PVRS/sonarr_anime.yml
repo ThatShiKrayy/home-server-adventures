@@ -13,8 +13,7 @@ services:
       start_period: 30s
     image: ghcr.io/home-operations/sonarr:4.0.14.2938
     networks:
-    - default
-    - socket_proxy
+    - media_backend
     ports:
     - "9999:8989"
     restart: "unless-stopped"

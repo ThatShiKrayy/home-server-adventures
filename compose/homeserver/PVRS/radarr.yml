@@ -13,8 +13,7 @@ services:
       retries: 2
       start_period: 30s
     networks:
-    - socket_proxy
-    - default
+    - media_backend
     ports:
     - "7878:7878"
     user: $PUID:$PGID
@@ -23,13 +22,8 @@ services:
     - $DATADIR/Movies:/data/movies
     - $DOWNDIR:/data/downloads
     - "/etc/localtime:/etc/localtime:ro"
-    - logs:/var/log
     environment:
       TZ: $TZ
       PUID: $PUID
       PGID: $PGID
-
-volumes:
-  logs:
-
     # Will deploy https://app.crowdsec.net/hub/author/schiz0phr3ne/log-parsers/radarr-logs soon

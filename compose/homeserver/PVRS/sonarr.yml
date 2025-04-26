@@ -13,8 +13,7 @@ services:
       start_period: 30s
     image: ghcr.io/home-operations/sonarr:4.0.14.2938
     networks:
-    - default
-    - socket_proxy
+    - media_backend
     ports:
     - "8989:8989"
     restart: "unless-stopped"
@@ -26,9 +25,4 @@ services:
     - $DATADIR/TV:/data/TV
     - $DOWNDIR:/data/downloads
     - "/etc/localtime:/etc/localtime:ro"
-    - logs:/var/log
-
-volumes:
-  logs:
-
     # Will deploy https://app.crowdsec.net/hub/author/schiz0phr3ne/log-parsers/sonarr-logs soon
