@@ -26,4 +26,9 @@ services:
     - $DATADIR/TV:/data/TV
     - $DOWNDIR:/data/downloads
     - "/etc/localtime:/etc/localtime:ro"
-    - $LOGDIR/sonarr:/var/log
+    - logs:/var/log
+
+volumes:
+  logs:
+
+    # Will deploy https://app.crowdsec.net/hub/author/schiz0phr3ne/log-parsers/sonarr-logs soon

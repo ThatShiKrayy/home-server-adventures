@@ -20,6 +20,11 @@ services:
     volumes:
     - $DOCKERDIR/appdata/sabnzbd:/config
     - $DOWNDIR:/data/downloads
-    - $LOGDIR/sabnzbd:/var/log
+    # - logs:/config/logs
     - $DATADIR/TV/MasterClass:/masterclass
     - $DATADIR/private:/data/private
+
+# volumes:
+#   logs:
+
+# Will deploy https://app.crowdsec.net/hub/author/crowdsecurity/log-parsers/sabnzbd-logs soon

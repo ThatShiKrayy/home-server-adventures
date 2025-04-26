@@ -23,4 +23,7 @@ services:
     #- $DATADIR/books:/data/books
     - $DATADIR/audiobooks:/data/spoken
     - $DOWNDIR:/data/downloads
-    #- $LOGDIR/readarr:/var/log
+    - logs:/var/log
+
+volumes:
+  logs:

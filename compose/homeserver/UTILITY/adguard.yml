@@ -1,7 +1,7 @@
-name: adguardhome
 services:
   adguardhome:
     image: adguard/adguardhome
+    container_name: adguard
     networks:
     - default
     ports:

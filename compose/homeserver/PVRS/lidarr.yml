@@ -9,7 +9,7 @@ services:
     - $DOCKERDIR/appdata/lidarr:/config
     - $DATADIR/Music:/data/music
     - $DOWNDIR:/data/downloads
-    - $LOGDIR/lidarr:/var/log
+    - logs:/var/log
     ports:
     - 8686:8686
     healthcheck:
@@ -19,3 +19,6 @@ services:
       retries: 2
       start_period: 30s
     restart: unless-stopped
+
+volumes:
+  logs:

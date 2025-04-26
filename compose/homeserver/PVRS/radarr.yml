@@ -23,8 +23,13 @@ services:
     - $DATADIR/Movies:/data/movies
     - $DOWNDIR:/data/downloads
     - "/etc/localtime:/etc/localtime:ro"
-    - $LOGDIR/radarr:/var/log
+    - logs:/var/log
     environment:
       TZ: $TZ
       PUID: $PUID
       PGID: $PGID
+
+volumes:
+  logs:
+
+    # Will deploy https://app.crowdsec.net/hub/author/schiz0phr3ne/log-parsers/radarr-logs soon

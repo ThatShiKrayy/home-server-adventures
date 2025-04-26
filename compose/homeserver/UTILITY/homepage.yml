@@ -11,7 +11,7 @@ services:
     - "3000:3000"
     volumes:
     - $DOCKERDIR/appdata/homepage:/app/config
-    - $LOGDIR/homepage:/var/log
+    - logs:/var/log
     env_file: $DOCKERDIR/.env
     environment:
     - TZ=$TZ
@@ -21,3 +21,6 @@ services:
     - plex_token
     - radarr_api
     - sonarr_api
+
+volumes:
+  logs:

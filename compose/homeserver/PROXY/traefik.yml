@@ -44,10 +44,13 @@ services:
     volumes:
     - $DOCKERDIR/appdata/traefik/rules/$HOSTNAME:/rules
     - $DOCKERDIR/appdata/traefik/acme/acme.json:/acme.json
-    - $DOCKERDIR/logs/$HOSTNAME/traefik:/logs
+    - logs:/logs
     - $DOCKERDIR/appdata/traefik/config/traefik.yml:/etc/traefik/traefik.yml
     - $DOCKERDIR/secrets/traefik_crowdsec_api:/run/secrets/traefik_crowdsec_api:ro
 
 secrets:
   traefik_crowdsec_api:
     file: $DOCKERDIR/secrets/traefik_crowdsec_api
+
+volumes:
+  logs:
