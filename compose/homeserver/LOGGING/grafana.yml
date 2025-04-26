@@ -5,11 +5,14 @@ services:
     restart: always
     user: $PUID:$PGID
     networks:
-    - socket_proxy
+    - logging_backend
     ports:
-    - '3002:3000'
+    - '9095:3000'
     depends_on:
     - prometheus
     volumes:
-    - $LOGDIR/grafana:/var/log
+    - logs:/var/log
     - $APPDIR/grafana:/var/lib/grafana
+
+volumes:
+  logs:

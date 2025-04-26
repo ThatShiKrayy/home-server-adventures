@@ -1,0 +1,19 @@
+secrets:
+  my-adguard-pass:
+    file: ./my-adguard-pass.txt
+
+services:
+  adguard_exporter:
+    image: ebrianne/adguard_exporter:latest
+    restart: always
+    secrets:
+    - adguard_password
+    ports:
+    - "9617:9617"
+    environment:
+    - adguard_protocol=http
+    - adguard_hostname=192.168.50.123
+    - adguard_username=admin
+    - adguard_password=/run/secrets/adguard_password
+    - interval=10s
+    - log_limit=10000

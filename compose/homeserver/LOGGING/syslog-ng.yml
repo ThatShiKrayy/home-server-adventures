@@ -2,8 +2,8 @@ services:
   syslog-ng:
     container_name: syslog
     environment:
-    - PUID=1001
-    - PGID=1001
+    # - PUID=1001
+    # - PGID=1001
     - TZ=America/Chicago
     - LOG_TO_STDOUT=false
     image: lscr.io/linuxserver/syslog-ng:latest
@@ -11,8 +11,8 @@ services:
     - 514:5514/udp
     - 601:6601/tcp
     - 6514:6514/tcp
+    - 4853:514/udp
     restart: unless-stopped
     volumes:
     - $APPDIR/syslog:/config
-    - $APPDIR/:/var/syslog:ro
-    - /var/log:/var/syslog:ro
+    - logs:/var/syslog

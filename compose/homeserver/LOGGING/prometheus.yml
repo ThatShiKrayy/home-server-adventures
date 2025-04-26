@@ -6,11 +6,13 @@ services:
     ports:
     - 9096:9090
     networks:
-    #- socket_proxy
-    - default
+    - logging_backend
     volumes:
     - $APPDIR/prometheus:/etc/prometheus
-    - $LOGDIR/prometheus:/var/log
+    - logs:/var/log
     command:
     - --config.file=/etc/prometheus/prometheus.yml
     restart: always
+
+volumes:
+  logs:

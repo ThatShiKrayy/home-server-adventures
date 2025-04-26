@@ -3,8 +3,8 @@ services:
     image: grafana/promtail:latest
     container_name: promtail
     volumes:
-    - $APPDIR/:/var/log
-    - $LOGDIR/:/var/log2
+    # - $APPDIR/:/var/log
+    - logs:/var/log
     - $APPDIR/promtail:/etc/promtail
     command:
     - -config.file=/etc/promtail/config.yml
@@ -13,4 +13,7 @@ services:
     - 9080:9080
     - 31022:31022
     networks:
-    - socket_proxy
+    - logging_backend
+
+volumes:
+  logs:
