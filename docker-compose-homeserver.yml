@@ -26,6 +26,18 @@ networks:
     ipam:
       config:
         - subnet: 192.168.54.0/24
+  logging_backend:
+    name: logging_backend
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.55.0/24
+  media_backend:
+    name: media_backend
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.56.0/24
 ########################### SECRETS
 secrets:
   sonarr_api:
@@ -116,7 +128,6 @@ include:
   - compose/$PVRS/radarr.yml
   - compose/$PVRS/readarr.yml
   - compose/$PVRS/sonarr.yml
-  - compose/$PVRS/readarr_audio.yml
   - compose/$PVRS/configarr.yml
   - compose/$PVRS/sonarr_anime.yml
 
@@ -132,11 +143,13 @@ include:
   - compose/$UTILITY/grocy.yml
   - compose/$UTILITY/web.yml
   - compose/$UTILITY/overseerr.yml
+  - compose/$UTILITY/n8n.yml
 
   # LOG_PROPOGATION - currently staging for re-deployment
-  #- compose/$HOSTNAME/grafana.yml
-  #- compose/$HOSTNAME/loki.yml
-  #- compose/$HOSTNAME/prometheus.yml
-  #- compose/$HOSTNAME/promtail.yml
-  #- compose/$HOSTNAME/syslog-ng.yml
-  #- compose/$HOSTNAME/node.yml
+  - compose/$LOGGING/grafana.yml
+  - compose/$LOGGING/loki.yml
+  - compose/$LOGGING/prometheus.yml
+  - compose/$LOGGING/promtail.yml
+  - compose/$LOGGING/syslog-ng.yml
+  - compose/$LOGGING/node.yml
+  - compose/$LOGGING/exportarr.yml
