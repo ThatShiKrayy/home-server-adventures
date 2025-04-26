@@ -1,0 +1,22 @@
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec
+    container_name: crowdsec
+    restart: always
+    networks:
+      crowdsec:
+    ports:
+    - 13222:8080
+    environment:
+      DOCKER_HOST: tcp://socket-proxy:2375
+      COLLECTIONS: "crowdsecurity/nginx"
+    depends_on:
+    - 'traefik'
+    volumes:
+    - $DOCKERDIR/appdata/crowdsec/data:/var/lib/crowdsec/data
+    - $DOCKERDIR/appdata/crowdsec/config:/etc/crowdsec
+    - /var/log:/var/log:ro
+    - logs:/logs/web
+
+volumes:
+  logs:
