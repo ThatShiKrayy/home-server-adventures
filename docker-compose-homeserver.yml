@@ -21,7 +21,11 @@ networks:
       config:
         - subnet: 192.168.53.0/24
   crowdsec:
+    name: crowdsec
     driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.54.0/24
 ########################### SECRETS
 secrets:
   sonarr_api:
@@ -92,6 +96,8 @@ secrets:
     file: ${DOCKERDIR}/secrets/jwt_secret_key
   jwt_refresh_secret:
     file: ${DOCKERDIR}/secrets/jwt_refresh_secret
+  cloudflare_email:
+    file: ${DOCKERDIR}/secrets/cloudflare_email
 include:
   # MEDIA
   - compose/$MEDIA/audiobookshelf.yml
@@ -109,7 +115,6 @@ include:
   - compose/$PVRS/prowlarr.yml
   - compose/$PVRS/radarr.yml
   - compose/$PVRS/readarr.yml
-  - compose/$PVRS/suwayomi.yml
   - compose/$PVRS/sonarr.yml
   - compose/$PVRS/readarr_audio.yml
   - compose/$PVRS/configarr.yml
@@ -119,6 +124,7 @@ include:
   - compose/$PROXY/socket-proxy.yml
   - compose/$PROXY/traefik.yml
   - compose/$PROXY/whoami.yml
+  - compose/$PROXY/crowdsec.yml
 
   # UTILITY
   - compose/$UTILITY/adguard.yml

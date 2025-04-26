@@ -1,0 +1,18 @@
+services:
+  crowdsec-bouncer-cloudflare:
+    image: crowdsecurity/cloudflare-bouncer
+    container_name: crowdsec-bouncer-cloudflare
+    networks:
+    - socket_proxy
+    - t3_proxy
+    - crowdsec
+    ports:
+    - 2112:2112
+    secrets:
+    - cf_bouncer_token
+    - cf_bouncer_api
+    volumes:
+    - $APPDIR/crowdsec/config/bouncers:/etc/crowdsec/bouncers
+    depends_on:
+    - crowdsec
+    restart: unless-stopped
