@@ -5,18 +5,27 @@ services:
     restart: always
     networks:
       crowdsec:
+      logging_backend:
     ports:
     - 13222:8080
     environment:
-      DOCKER_HOST: tcp://socket-proxy:2375
-      COLLECTIONS: "crowdsecurity/nginx"
+    - DOCKER_HOST: tcp://socket-proxy:2375
+    - COLLECTIONS: "crowdsecurity/nginx"
     depends_on:
     - 'traefik'
     volumes:
     - $DOCKERDIR/appdata/crowdsec/data:/var/lib/crowdsec/data
     - $DOCKERDIR/appdata/crowdsec/config:/etc/crowdsec
-    - /var/log:/var/log:ro
+    - logs:/var/log:ro
     - logs:/logs/web
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.crowdsec.rule=Host(`bounce.$DOMAINNAME_1`)"
+    - "traefik.http.routers.crowdsec.entrypoints=websecure"
+    # - "traefik.http.routers.crowdsec.tls.certresolver=yourresolver"
+    - "traefik.http.routers.crowdsec.middlewares=crowdsec-auth"
+    - "traefik.http.middlewares.crowdsec-auth.basicauth.users=admin:"$apr1$ssqoH7Na$nIRl4shERwz2tQMEzF5X4.""
+    - "traefik.http.services.crowdsec.loadbalancer.server.port=8080"
 
 volumes:
   logs:

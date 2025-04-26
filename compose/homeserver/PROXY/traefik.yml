@@ -20,6 +20,7 @@ services:
         ipv4_address: 192.168.52.254
       socket_proxy:
       crowdsec:
+      logging_backend:
     ports:
     - target: 80
       published: 80
